@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>TODO</title>
+  </head>
+  <body>
+    <div id="root">
+      <div id="first-box">
+        <h1 class="title">TO DO</h1>
+        <div class="todo-div">
+          <input
+            placeholder="A task to be done today..."
+            id="todo-input"
+            type="text"
+            class="input-root"
+          />
+          <button id="add"><span>+</span></button>
+        </div>
+        <ul id="todo-ul">
+          <li></li>
+        </ul>
+      </div>
+      <div id="second-box">
+        <div class="todo-box">
+          <span class="title">Today's Progress</span>
+          <div class="todo-bar">
+            <span class="todo-per">
+              <span class="tooltip">0%</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: none;">
+      <button class="canvasBtn" id="stopButton">stop</button>
+      <button class="canvasBtn" id="startButton">start</button>
+      <canvas id="canvas"></canvas>
+    </div>
+    <script src="index.js"></script>
+  
+    <script src="floweref.js"></script>
+  </body>
+</html>
