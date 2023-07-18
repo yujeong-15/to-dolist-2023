@@ -159,7 +159,7 @@ if (saveTodo) {
 function displayProgress() {
   const getSaveTodo = localStorage.getItem('newTodoList');
   const parsedTodos = JSON.parse(getSaveTodo);
-  const completeItem = parsedTodos.filter((todo) => todo.checked === true).length;
+  const completeItem = parsedTodos && parsedTodos.filter((todo) => todo.checked === true).length;
   const todoItems = parsedTodos.length;
   const progressPercentage = Math.round((completeItem / todoItems) * 100);
 
