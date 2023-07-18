@@ -158,19 +158,22 @@ if (saveTodo) {
 //진행률 표시
 function displayProgress() {
   const getSaveTodo = localStorage.getItem('newTodoList');
-  const parsedTodos = JSON.parse(getSaveTodo);
-  const completeItem = parsedTodos && parsedTodos.filter((todo) => todo.checked === true).length;
+  let parsedTodos = [];
+
+  if (getSaveTodo) {
+    parsedTodos = JSON.parse(getSaveTodo);
+  }
+
+  const completeItem = parsedTodos.filter((todo) => todo.checked === true).length;
   const todoItems = parsedTodos.length;
-  const progressPercentage = Math.round((completeItem / todoItems) * 100);
+  let progressPercentage = 0;
+
+  if (todoItems > 0) {
+    progressPercentage = Math.round((completeItem / todoItems) * 100);
+  }
 
   tooltipSpan.innerHTML = `${progressPercentage}%`;
   todoper.style.width = `${progressPercentage}%`;
-  if (progressPercentage === 100) {
-    $("#startButton").trigger("click");
-    setTimeout(function () {
-      $("#stopButton").trigger("click");
-    },3000);
-  }
 }
 
 
