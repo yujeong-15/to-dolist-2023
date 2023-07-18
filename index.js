@@ -164,7 +164,7 @@ function displayProgress() {
     parsedTodos = JSON.parse(getSaveTodo);
   }
 
-  const completeItem = parsedTodos.filter((todo) => todo.checked === true).length;
+  const completeItem = parsedTodos && parsedTodos.filter((todo) => todo.checked === true).length;
   const todoItems = parsedTodos.length;
   let progressPercentage = 0;
 
