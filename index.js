@@ -70,22 +70,31 @@ function paintTodo(newTodo) {
     clickModify(newTodo);
   });
   completeBtn.addEventListener('click', function () {
-    completeTodo(newTodo);
+    toggleCheckbox(newTodo);
   });
 
 }
 
 //완료된 to-do-list 처리
-function completeTodo(completeTodo) {
+function toggleCheckbox(completeTodo) {
   const li = document.getElementById(completeTodo.id);
-  const checkBox = li.querySelector('.completeBtn');
+  const checkBox = li.querySelector('.searchBtn');
   const checkedInpt = li.querySelector('.todo-list');
 
-  checkedInpt.classList.add('checked');
-  checkBox.classList.remove('completeBtn');
-  checkBox.classList.add('checkBtn');
-  checkBox.innerHTML = '✅';
-  completeTodo.checked = true;
+  if(completeTodo.checked !== true){ 
+    checkedInpt.classList.add('checked');
+    checkBox.classList.remove('completeBtn');
+    checkBox.classList.add('checkBtn');
+    checkBox.innerHTML = '✅';
+    completeTodo.checked = true;
+  }else{
+    checkedInpt.classList.remove('checked');
+    checkBox.classList.add('completeBtn');
+    checkBox.classList.remove('checkBtn');
+    checkBox.innerHTML = '';
+    completeTodo.checked = false;
+  }
+
   save();
   displayProgress();
 }

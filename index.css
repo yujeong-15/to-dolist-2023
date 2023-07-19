@@ -1,9 +1,12 @@
+body {
+
+    background-color: #ebebeb;
+}
+
 #root {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #ebebeb;
-   
     font-family: 'Zen Maru Gothic', sans-serif;
 
 }
