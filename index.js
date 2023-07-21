@@ -82,6 +82,7 @@ function toggleCheckbox(completeTodo) {
   const checkedInpt = li.querySelector('.todo-list');
 
   if (completeTodo.checked !== true) {
+    checkedInpt.readOnly = true;
     checkedInpt.classList.add('checked');
     checkBox.classList.remove('complete-btn');
     checkBox.classList.add('check-btn');
