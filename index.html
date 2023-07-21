@@ -20,23 +20,23 @@
   </head>
   <body>
     <div id="root">
-      <div id="first-box">
-        <h1 class="title">TO DO</h1>
-        <div class="todo-div">
-          <input
-            placeholder="A task to be done today..."
-            id="todo-input"
-            type="text"
-            class="input-root"
-          />
-          <button id="add"><span>+</span></button>
+      <div class="todo-box">
+        <div id="first-box">
+          <h1 class="title">TO DO</h1>
+          <div class="todo-div">
+            <input
+              placeholder="A task to be done today..."
+              id="todo-input"
+              type="text"
+              class="input-root"
+            />
+            <button id="add"><span>+</span></button>
+          </div>
+          <ul id="todo-ul">
+            <li></li>
+          </ul>
         </div>
-        <ul id="todo-ul">
-          <li></li>
-        </ul>
-      </div>
-      <div id="second-box">
-        <div class="todo-box">
+        <div id="second-box">
           <span class="title">Today's Progress</span>
           <div class="todo-bar">
             <span class="todo-per">
@@ -46,7 +46,6 @@
         </div>
       </div>
     </div>
-
 
     <script src="index.js"></script>
   </body>

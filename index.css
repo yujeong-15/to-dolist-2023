@@ -1,5 +1,4 @@
 body {
-
     background-color: #ebebeb;
 }
 
@@ -12,14 +11,10 @@ body {
 }
 
 #first-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 50px 0px;
     padding: 30px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     border-radius: 6%;
-    flex-direction: column;
     background-color: #fff;
 
 }
@@ -28,20 +23,14 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     border-radius: 6%;
     position: relative;
-    max-width: 500px;
-    width: 100%;
+    width: 500px;
     background: #ffffff;
-    margin: 0px 15px;
-    padding: 10px 50px;
-    border-radius: 15px;
+    margin: 50px 100px;
+    padding: 30px;
 }
 
-#second-box .todo-box {
-    width: 100%;
-    margin: 25px 0;
-}
 
-.todo-box .title {
+#second-box .title {
     display: block;
     font-size: 50px;
     font-weight: 600;
@@ -49,12 +38,34 @@ body {
 
 }
 
-.todo-box .todo-bar {
+#second-box .todo-bar {
     height: 15px;
     width: 100%;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.15);
     margin-top: 68px;
+}
+
+#add {
+    width: 80px;
+    height: 44px;
+    background: #f26060;
+    border-radius: 50%;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 900;
+    margin-left: 20px;
+}
+
+#todo-ul {
+    padding-right: 15px;
+}
+
+#todo-input::placeholder {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .todo-bar .todo-per {
@@ -66,6 +77,11 @@ body {
     background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
     animation: progress 0.4s ease-in-out forwards;
     opacity: 0;
+}
+.todo-box{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
 }
 
 @keyframes progress {
@@ -81,7 +97,7 @@ body {
 
 .todo-per .tooltip {
     position: absolute;
-    right: -14px;
+    right: -31px;
     top: -38px;
     font-weight: 500;
     color: #fff;
@@ -125,22 +141,7 @@ span {
     font-size: 15px;
 }
 
-#add {
-    width: 80px;
-    height: 44px;
-    background: #f26060;
-    border-radius: 50%;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 25px;
-    font-weight: 900;
-    margin-left: 20px;
-}
 
-#todo-ul {
-    padding-right: 15px;
-}
 
 
 
@@ -151,10 +152,7 @@ span {
     margin: 10px 0px;
 }
 
-#todo-input::placeholder {
-    font-family: 'Zen Maru Gothic', sans-serif;
-    color: rgba(0, 0, 0, 0.5);
-}
+
 
 .todo-list {
     border: none;
@@ -164,6 +162,7 @@ span {
     height: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
+    transition: 0.3s;
 
 }
 
@@ -182,7 +181,7 @@ span {
 }
 
 
-.completeBtn {
+.complete-btn {
     width: 35px;
     height: 31px;
     background: #ebebeb;
@@ -192,12 +191,12 @@ span {
 
 }
 
-.checkBtn {
+.check-btn {
     font-size: 25px;
 }
 
-.modifybtn,
-.deletbtn {
+.modify-btn,
+.delete-btn {
 
     border: none;
     display: inline-block;
@@ -213,8 +212,8 @@ span {
 
 }
 
-.modifybtn:hover,
-.deletbtn:hover {
+.modify-btn:hover,
+.delete-btn:hover {
     letter-spacing: 2px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     transform: scale(1.2);
@@ -224,4 +223,15 @@ span {
 .checked {
     text-decoration-line: line-through;
     color: rgba(0, 0, 0, 0.2);
+}
+
+.selectedInput{
+  outline: 0;
+  background: transparent;
+  transition: border-color 0.3s;
+}
+
+
+.todo-list:not([readonly]){
+    border-bottom: 1px solid tomato;
 }

@@ -41,32 +41,32 @@ function paintTodo(newTodo) {
   const li = document.createElement('li');
   const input = document.createElement('input');
 
-  const modifybtn = document.createElement('button');
-  const deletebtn = document.createElement('button');
+  const modifyBtn = document.createElement('button');
+  const deleteBtn = document.createElement('button');
   const completeBtn = document.createElement('button');
 
-  modifybtn.innerHTML = '✏️Edit';
-  deletebtn.innerHTML = '❌Del';
+  modifyBtn.innerHTML = '✏️Edit';
+  deleteBtn.innerHTML = '❌Del';
 
 
   input.setAttribute('type', 'text');
-  input.setAttribute('readonly', 'true');
+  input.setAttribute('readonly', 'false');
 
 
   li.classList.add('todo-li');
   input.classList.add('todo-list');
-  modifybtn.classList.add('todo-btn', 'modifybtn');
-  deletebtn.classList.add('todo-btn', 'deletbtn');
-  completeBtn.classList.add('todo-btn', 'completeBtn', 'searchBtn');
+  modifyBtn.classList.add('todo-btn', 'modify-btn');
+  deleteBtn.classList.add('todo-btn', 'delete-btn');
+  completeBtn.classList.add('todo-btn', 'complete-btn', 'search-btn');
 
-  li.append(completeBtn, input, modifybtn, deletebtn);
+  li.append(completeBtn, input, modifyBtn, deleteBtn);
   ul.append(li);
 
   input.value = newTodo.text;
   li.id = newTodo.id;
   displayProgress();
-  deletebtn.addEventListener('click', deleteTodo);
-  modifybtn.addEventListener('click', function () {
+  deleteBtn.addEventListener('click', deleteTodo);
+  modifyBtn.addEventListener('click', function () {
     clickModify(newTodo);
   });
   completeBtn.addEventListener('click', function () {
@@ -78,19 +78,19 @@ function paintTodo(newTodo) {
 //완료된 to-do-list 처리
 function toggleCheckbox(completeTodo) {
   const li = document.getElementById(completeTodo.id);
-  const checkBox = li.querySelector('.searchBtn');
+  const checkBox = li.querySelector('.search-btn');
   const checkedInpt = li.querySelector('.todo-list');
 
-  if(completeTodo.checked !== true){ 
+  if (completeTodo.checked !== true) {
     checkedInpt.classList.add('checked');
-    checkBox.classList.remove('completeBtn');
-    checkBox.classList.add('checkBtn');
+    checkBox.classList.remove('complete-btn');
+    checkBox.classList.add('check-btn');
     checkBox.innerHTML = '✅';
     completeTodo.checked = true;
-  }else{
+  } else {
     checkedInpt.classList.remove('checked');
-    checkBox.classList.add('completeBtn');
-    checkBox.classList.remove('checkBtn');
+    checkBox.classList.add('complete-btn');
+    checkBox.classList.remove('check-btn');
     checkBox.innerHTML = '';
     completeTodo.checked = false;
   }
@@ -109,19 +109,24 @@ function clickModify(modifyTodo) {
     modifyInput.readOnly = true;
   } else {
     modifyInput.readOnly = false;
-  }
-
-  modifyInput.addEventListener('keydown', function (event) {
-    if (event.key === 'Enter') {
-      if (liId !== -1) {
-        newTodoObj[liId].text = modifyInput.value;
-        modifyInput.readOnly = true;
+    modifyInput.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        commitEditedContent();
       }
-      save();
-      displayProgress();
-    }
-  });
+    });
+    modifyInput.addEventListener('blur', function () {
+      commitEditedContent();
+    });
+  }
+  function commitEditedContent() {
+    newTodoObj[liId].text = modifyInput.value;
+    modifyInput.readOnly = true;
+    save();
+    displayProgress();
+  }
 }
+
+
 
 //todo 정보 만들기
 function createTodo() {
@@ -153,9 +158,9 @@ if (saveTodo) {
       if (x.id === check.id) {
         const checkedLi = document.getElementById(x.id);
         const completeInput = checkedLi.querySelector('.todo-list');
-        const checkBox = checkedLi.querySelector('.searchBtn');
-        checkBox.classList.add('checkBtn');
-        checkBox.classList.remove('completeBtn');
+        const checkBox = checkedLi.querySelector('.search-btn');
+        checkBox.classList.add('check-btn');
+        checkBox.classList.remove('complete-btn');
         completeInput.classList.add('checked');
         checkBox.innerHTML = '✅';
 
@@ -166,15 +171,8 @@ if (saveTodo) {
 
 //진행률 표시
 function displayProgress() {
-  const getSaveTodo = localStorage.getItem('newTodoList');
-  let parsedTodos = [];
-
-  if (getSaveTodo) {
-    parsedTodos = JSON.parse(getSaveTodo);
-  }
-
-  const completeItem = parsedTodos && parsedTodos.filter((todo) => todo.checked === true).length;
-  const todoItems = parsedTodos.length;
+  const completeItem = newTodoObj && newTodoObj.filter((todo) => todo.checked === true).length;
+  const todoItems = newTodoObj.length;
   let progressPercentage = 0;
 
   if (todoItems > 0) {
