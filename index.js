@@ -80,7 +80,7 @@ class PaintTodo {
   toggleCheckbox(todo) {
     if (!todo.check) {
       this.input.readOnly = true;
-      this.completeBtn.innerHTML = '✅';
+      this.completeBtn.innerHTML = '✓';
       this.input.classList.toggle('checked', true);
       this.completeBtn.classList.toggle('complete-btn', false);
       this.completeBtn.classList.toggle('check-btn', true);
@@ -104,6 +104,7 @@ function createTodo() {
   const todo = new Todo(Date.now(), text, false);
   newTodoObj.push(todo);
 
+  const paintTodo = new PaintTodo();
   paintTodo.paintTodo(todo);
   displayProgress();
 }
@@ -150,7 +151,6 @@ const ul = document.getElementById('todo-ul');
 const addBtn = document.getElementById('add');
 const tooltipSpan = document.querySelector('.tooltip');
 const todoper = document.querySelector('.todo-per');
-const paintTodo = new PaintTodo();
 let newTodoObj = [];
 
 
@@ -170,7 +170,7 @@ if (saveTodo) {
           paintTodo.completeBtn.classList.add('check-btn');
           paintTodo.completeBtn.classList.remove('complete-btn');
           paintTodo.input.classList.add('checked');
-          paintTodo.completeBtn.innerHTML = '✅';
+         paintTodo.completeBtn.innerHTML = '✓';
         }
 
       })
