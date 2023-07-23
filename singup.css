@@ -1,0 +1,71 @@
+body {
+    background-color: #e8dbd2;
+}
+
+.fa-user-plus {
+    font-size: 55px;
+    margin: 20px 0 60px 0;
+    text-align: center;
+}
+.fa-eye-slash{
+    position: relative;
+    right: 29px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.title {
+    display: block;
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+   margin-top: 20px;
+    font-size: 20px;
+}
+
+form {
+    width: 500px;
+    height: 100%;
+    background-color: #fff;
+    margin: 50px;
+    padding: 50px;
+    border-radius: 6%;
+
+
+}
+
+.text {
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #333; 
+  
+    padding: 0 20px;
+    font-size: 15px;
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    transition: border-color 0.3s;
+}
+
+.isValid {
+    display: block;
+    margin: 12px 0 20px 0;
+    font-size: 15px;
+    color: tomato;
+    visibility: hidden;
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+}
+
+.text:focus {
+    border-bottom: 1px solid tomato;
+}

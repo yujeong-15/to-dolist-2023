@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="singup.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="root">
+      <!-- <div><i class="fas fa-user-plus"></i></div> -->
+      <form>
+        <div class="icon"><i class="fas fa-user-plus"></i></div>
+        <div class="userIdBox">
+          <span class="title">ID</span>
+          <input type="text" id="userId" class="text" />
+          <span class="isValid"></span>
+        </div>
+        <div>
+          <span class="title">Password</span>
+        
+            <input type="text" id="password" class="text" />
+            <i class="fas fa-eye-slash"></i>
+         
+          <span class="isValid" >Please try again!</span>
+        </div>
+        <div>
+          <span class="title">Name</span>
+          <input type="text" id="userName" class="text" />
+          <span class="isValid">Please try again!</span>
+        </div>
+        <div>
+          <span class="title">Date</span>
+          <input type="text" id="userId" class="text" />
+          <span class="isValid">Please try again!</span>
+        </div>
+        <div>
+          <span class="title">Gender</span>
+          <label><input type="radio" value="0" name="man" />Man</label>
+          <label><input type="radio" value="1" name="woman" />Woman</label>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="singup.js"></script>
+</html>
