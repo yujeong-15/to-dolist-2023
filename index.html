@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="login.css" />
-
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="reset.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/74462a46b3.js"
+      crossorigin="anonymous"
+    ></script>
     <title>login</title>
   </head>
   <body>
+
     <div class="form-box">
-    <form  action="todo/todo.html" method="get" id="login-from">
-      <input
-        name="username"
-        type="text"
-        minlength="3"
-        maxlength="8"
-        placeholder="id"
-      />
-      <input
-        name="password"
-        type="password"
-        minlength="2"
-        placeholder="password"
-      />
-      <input type="submit" value="Log In" />
-      <a href="singup/signup.html">회원가입</a>
-    </form>
-  </div>
+      <img src="logo-color.svg" alt="Logo SVG" id="logo">
+      <form action="todo/todo.html" method="get" id="login-from">
+        <!-- todo:css x버튼 중앙정렬 -->
+        <input
+          name="username"
+          type="text"
+          minlength="3"
+          maxlength="8"
+          placeholder="id"
+        />
+        <span><i class="fa-regular fa-circle-xmark"></i></span>
+        <input
+          name="password"
+          type="password"
+          minlength="2"
+          placeholder="password"
+        />
+        <span><i class="fa-regular fa-circle-xmark"></i></span>
+        <input type="submit" value="Log In" />
+        <a href="singup/signup.html">sing up</a>
+      </form>
+    </div>
   </body>
+  <script src="index.js"></script>
 </html>
