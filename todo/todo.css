@@ -76,7 +76,8 @@ body {
     animation: progress 0.4s ease-in-out forwards;
     opacity: 0;
 }
-.todo-box{
+
+.todo-box {
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -139,7 +140,7 @@ span {
     padding: 0 20px;
     background: transparent;
     font-size: 15px;
-    
+
 }
 
 .todo-div {
@@ -232,14 +233,32 @@ span {
     color: rgba(0, 0, 0, 0.2);
 }
 
-.selectedInput{
-  outline: 0;
-  background: transparent;
-  transition: border-color 0.3s;
+.selectedInput {
+    outline: 0;
+    background: transparent;
+    transition: border-color 0.3s;
 }
 
 
-.todo-list:not([readonly]){
+.todo-list:not([readonly]) {
     border-bottom: 1px solid tomato;
 }
 
+@media only screen and (max-width: 767px) {
+    body {
+        margin: 0;
+    }
+    .todo-list {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    body {
+        margin: 0; 
+    }
+
+    .todo-list {
+        width: 100%; 
+    }
+}
