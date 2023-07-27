@@ -244,21 +244,42 @@ span {
     border-bottom: 1px solid tomato;
 }
 
-@media only screen and (max-width: 767px) {
-    body {
-        margin: 0;
-    }
-    .todo-list {
-        width: 100%;
-    }
-}
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-    body {
-        margin: 0; 
+
+@media only screen and (min-width: 768px) {
+
+    .title,
+    #second-box .title {
+       font-size: 30px;
+       margin: 0;
+    }
+    #root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
-    .todo-list {
-        width: 100%; 
+    #add{
+        height: 41px;
     }
+    
+    #first-box,
+    #second-box {
+        width: 90%;
+        
+        max-width: 500px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+
+    #second-box{
+        padding: 30px;
+        height: 92px;
+    }
+    #second-box .todo-bar{
+      margin-top: 50px;
+
+    }
+
 }
