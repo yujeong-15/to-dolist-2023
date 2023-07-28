@@ -1,24 +1,24 @@
 body {
-    background-color: #e8dbd2;
+    background-color: #eee8e3;
 }
 
 #root {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: 80px;
 }
 
 #first-box {
     margin: 50px 0px;
     padding: 30px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border-radius: 6%;
     background-color: #fff;
-
 }
 
 #second-box {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border-radius: 6%;
     position: relative;
     width: 500px;
@@ -246,7 +246,8 @@ span {
 
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (device-width: 768px) and (device-height: 1024px),
+       only screen and (device-width: 834px) and (device-height: 1112px) {
 
     .title,
     #second-box .title {
@@ -266,8 +267,7 @@ span {
     
     #first-box,
     #second-box {
-        width: 90%;
-        
+        width: 80%;
         max-width: 500px;
         margin: 10px;
         border-radius: 10px;

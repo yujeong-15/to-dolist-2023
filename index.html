@@ -15,17 +15,21 @@
 
     <div class="form-box">
       <img src="logo-color.svg" alt="Logo SVG" id="logo">
-      <form action="todo/todo.html" method="get" id="login-from">
+      <form action="todo/todo.html" id="login-from">
         <!-- todo:css x버튼 중앙정렬 -->
         <input
           name="username"
           type="text"
+          minlength="4"
+          maxlength="20"
           placeholder="id"
           id="login"
         />
         <span class="login-delete"><i class="fa-regular fa-circle-xmark"></i></span>
         <input
           name="password"
+          minlength="8"
+          maxlength="20"
           type="password"
           id="password"
           placeholder="password"
