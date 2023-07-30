@@ -1,17 +1,26 @@
 body {
-    background-color: #e8dbd2;
-}
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
 
-.fa-user-plus {
-    font-size: 55px;
-    margin: 20px 0 60px 0;
-    text-align: center;
-}
-.fa-eye-slash{
+.fa-eye-slash {
     position: relative;
     right: 29px;
     color: rgba(0, 0, 0, 0.3);
 }
+
+#logo {
+    height: 280px;
+    position: absolute;
+    top: -88px;
+    left: 450px;
+    z-index: 1;
+}
+
 
 .icon {
     display: flex;
@@ -24,48 +33,83 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-}
+    height: 100vh; 
+  }
 
 .title {
     display: block;
     font-family: 'Cafe24Supermagic-Bold-v1.0';
-   margin-top: 20px;
+    margin-top: 20px;
     font-size: 20px;
 }
 
 form {
-    width: 500px;
-    height: 100%;
+    z-index: 2;
     background-color: #fff;
-    margin: 50px;
+    margin: 30px 50px;
     padding: 50px;
     border-radius: 6%;
-
-
-}
+    height: auto; 
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
 .text {
-    width: 300px;
+    margin-top: 10px;
+    width: 350px;
     height: 40px;
-    border: none;
-    border-bottom: 1px solid #333; 
-  
-    padding: 0 20px;
+    border: 1px solid #333;
     font-size: 15px;
     font-family: 'Cafe24Supermagic-Bold-v1.0';
     transition: border-color 0.3s;
 }
-
-.isValid {
+.error-input{
+    border: 1px solid tomato;
+}
+.error-text {
+    visibility: hidden;
     display: block;
     margin: 12px 0 20px 0;
     font-size: 15px;
     color: tomato;
-    visibility: hidden;
     font-family: 'Cafe24Supermagic-Bold-v1.0';
 }
 
-.text:focus {
-    border-bottom: 1px solid tomato;
+.error-text:focus{
+    border: 1px solid tomato;
 }
+
+#singup-from a {
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    font-size: 16px;
+    color: #f07171;
+    ;
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+}
+
+.fa-eye,
+.eye-slash{
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 15px;
+}
+
+
+#singup-from button {
+    background-color :#5fbc68;
+    color: white;
+    cursor: pointer;
+    padding: 20px 0px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    width: 100%;
+    transition: background-color 0.5s ease;
+    margin: 35px 0;
+  
+  }

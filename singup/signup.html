@@ -13,37 +13,55 @@
   </head>
   <body>
     <div id="root">
-      <!-- <div><i class="fas fa-user-plus"></i></div> -->
-      <form>
-        <div class="icon"><i class="fas fa-user-plus"></i></div>
+      <img src="../logo-color.svg" alt="Logo SVG" id="logo" />
+      <form action="../index.html" id="singup-from">
+        <div>
         <div class="userIdBox">
-          <span class="title">ID</span>
-          <input type="text" id="userId" class="text" />
-          <span class="isValid"></span>
+          <span class="title">아이디</span>
+          <input
+            type="text"
+            id="userId"
+            class="text"
+            onchange="handleIdChange()"
+          />
+          <span class="error-text error-id"></span>
+        </div>
+        <div class="user-pw-box">
+          <span class="title">비밀번호</span>
+          <input
+            type="password"
+            id="password"
+            class="text"
+            onchange="handlePasswordChange()"
+          />
+          <i class="fas fa-eye-slash"></i>
+          <span class="error-text error-password"></span>
         </div>
         <div>
-          <span class="title">Password</span>
+          <span class="title">이메일</span>
+          <input type="email" id="email" placeholder="[선택] 비밀번호 분실 시 확인용 이메일 " class="text"  onchange="handleEmailChange()" />
+          <span class="error-text error-email"></span>
+        </div>
+        <div>
+          <span class="title">이름</span>
+          <input type="text" id="userName" class="text" onchange="handleNameChange()" />
+          <span class="error-text error-userName"></span>
+        </div>
+        <div>
+          <span class="title">생년월일</span>
+          <input type="text" id="date" class="text"  onchange="handleDateChange()" />
+          <span class="error-text error-date">Please try again!</span>
+        </div>
+        <div>
+          <span class="title">성별 </span>
+          <label for="mail">남자</label>
+          <input type="radio" id="man" value="1" />
         
-            <input type="text" id="password" class="text" />
-            <i class="fas fa-eye-slash"></i>
-         
-          <span class="isValid" >Please try again!</span>
+          <label for="mail">여자</label>
+          <input type="radio" id="woman" value="2" />
         </div>
-        <div>
-          <span class="title">Name</span>
-          <input type="text" id="userName" class="text" />
-          <span class="isValid">Please try again!</span>
-        </div>
-        <div>
-          <span class="title">Date</span>
-          <input type="text" id="userId" class="text" />
-          <span class="isValid">Please try again!</span>
-        </div>
-        <div>
-          <span class="title">Gender</span>
-          <label><input type="radio" value="0" name="man" />Man</label>
-          <label><input type="radio" value="1" name="woman" />Woman</label>
-        </div>
+      </div>
+        <button>회원가입</button>
       </form>
     </div>
   </body>
