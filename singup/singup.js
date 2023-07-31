@@ -184,16 +184,22 @@ function handleDateChange() {
     }
 }
 
-//todo 각에러에 맞는 메세지 할당,css 반응형
 function onSubmit(event) {
+    let hasError = false;
+  
     inputArray.forEach((text) => {
-        if (text.classList.contains("error-input")) {
-            event.preventDefault();
-        }else if(text.value === ""){
-            text.classList.add("error-input");
-            text.innerHTML = "필수 정보입니다.";
-            text.style.visibility = "visible";
-        }
+      if (text.classList.contains("error-input")) {
+        hasError = true;
+      } else if (text.value === "" && text.type !== "email") {
+        text.classList.add("error-input");
+        const errorTextElement = text.nextElementSibling; //형제요소 찾기
+        errorTextElement.innerHTML = "필수 정보입니다.";
+        errorTextElement.style.visibility = "visible";
+        hasError = true;
+      }
     });
-   
-}
+  
+    if (hasError) {
+      event.preventDefault();
+    }
+  }

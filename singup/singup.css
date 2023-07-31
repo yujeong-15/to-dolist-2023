@@ -4,20 +4,16 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-  }
 
-.fa-eye-slash {
-    position: relative;
-    right: 29px;
-    color: rgba(0, 0, 0, 0.3);
 }
+
+
 
 #logo {
     height: 280px;
     position: absolute;
     top: -88px;
-    left: 450px;
+    left: 273px;
     z-index: 1;
 }
 
@@ -32,15 +28,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: 100vh; 
-  }
-
-.title {
-    display: block;
-    font-family: 'Cafe24Supermagic-Bold-v1.0';
-    margin-top: 20px;
-    font-size: 20px;
+    height: 100vh;
 }
 
 form {
@@ -49,13 +37,12 @@ form {
     margin: 30px 50px;
     padding: 50px;
     border-radius: 6%;
-    height: auto; 
+    height: 300px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+    align-items: baseline;
+}
 
 .text {
     margin-top: 10px;
@@ -63,53 +50,76 @@ form {
     height: 40px;
     border: 1px solid #333;
     font-size: 15px;
-    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    padding-left: 10px;
+    font-family: 'NanumSquareNeo-Variable';
     transition: border-color 0.3s;
 }
-.error-input{
+
+.text::placeholder {
+    font-family: 'NanumSquareNeo-Variable';
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 15px;
+}
+
+.error-input {
     border: 1px solid tomato;
 }
+
 .error-text {
     visibility: hidden;
     display: block;
     margin: 12px 0 20px 0;
-    font-size: 15px;
+    font-size: 11px;
     color: tomato;
-    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    font-family: 'NanumSquareNeo-Variable';
 }
 
-.error-text:focus{
+.error-text:focus {
     border: 1px solid tomato;
 }
 
-#singup-from a {
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-    font-size: 16px;
-    color: #f07171;
-    ;
-    font-family: 'Cafe24Supermagic-Bold-v1.0';
-}
-
 .fa-eye,
-.eye-slash{
+.fa-eye-slash {
     color: rgba(0, 0, 0, 0.3);
     font-size: 15px;
 }
 
 
 #singup-from button {
-    background-color :#5fbc68;
+    background-color: #5fbc68;
     color: white;
     cursor: pointer;
-    padding: 20px 0px;
     border-radius: 15px;
     font-size: 20px;
-    font-weight: 700;
-    font-family: 'Cafe24Supermagic-Bold-v1.0';
-    width: 100%;
+     width: 30%;
+    font-family: 'NanumSquareNeo-Variable';
     transition: background-color 0.5s ease;
-    margin: 35px 0;
-  
-  }
+    margin: 20px 0;
+    padding: 10px;
+    border: none;
+
+}
+
+.password-box {
+    position: relative;
+}
+
+.password-box .fa-eye-slash,
+.password-box .fa-eye {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+#btn-submit{
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+#btn-submit:hover{
+    background-color: rgb(245, 245, 62);
+    color: #333;
+}
