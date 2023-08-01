@@ -26,7 +26,7 @@ function clearPasswordValue() {
 
 async function onSubmit(event) {
     event.preventDefault();
-    const loginUrl = '/users/singin';
+    const loginUrl = 'https://evolvetasks-evolvetasks.koyeb.app/users/singin';
     if (loginInputValue.value === "" || passwordInputValue.value === "") {
         return;
     }
@@ -41,7 +41,7 @@ async function onSubmit(event) {
     const data = await response.json();
 
     const token = data.token;
-    console.log(token);
+    console.log("성공?");
     return token;
 
   } catch (error) {
