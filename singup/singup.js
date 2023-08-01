@@ -23,6 +23,10 @@ const errorDate = document.querySelector(".error-date");
 const form = document.querySelector("#singup-from");
 form.addEventListener("submit", onSubmit);
 
+//성별 변수 선언
+const Male = 'Male';
+const Woman = 'Woman';
+
 
 //전체 input
 const input = document.getElementsByClassName("text");
@@ -184,22 +188,45 @@ function handleDateChange() {
     }
 }
 
+
+
+//성별 기능
+function seleteGender(event) {
+    if(event.target.value === "Male"){
+        return Male;
+    }else{
+        return Woman;
+    }
+   
+}
+
 function onSubmit(event) {
     let hasError = false;
-  
+
     inputArray.forEach((text) => {
-      if (text.classList.contains("error-input")) {
-        hasError = true;
-      } else if (text.value === "" && text.type !== "email") {
-        text.classList.add("error-input");
-        const errorTextElement = text.nextElementSibling; //형제요소 찾기
-        errorTextElement.innerHTML = "필수 정보입니다.";
-        errorTextElement.style.visibility = "visible";
-        hasError = true;
-      }
+        if (text.classList.contains("error-input")) {
+            hasError = true;
+        } else if (text.value === "" && text.type !== "email") {
+            text.classList.add("error-input");
+            const errorTextElement = text.nextElementSibling; //형제요소 찾기
+            errorTextElement.innerHTML = "필수 정보입니다.";
+            errorTextElement.style.visibility = "visible";
+            hasError = true;
+        }
     });
-  
+
     if (hasError) {
-      event.preventDefault();
+        event.preventDefault();
     }
-  }
+
+    fetch('users/singin', {
+        method: 'post',
+        data: JSON.stringify({
+            "userId": userId.value,
+            "password": password.value,
+            "username": userName.value,
+            "gender": "Male",
+            "birthDate": "1995-09-24T00:00:00.000Z"
+        })
+    })
+}
