@@ -5,8 +5,9 @@ const passwordInputValue = document.querySelector("#password");
 const form = document.querySelector("#login-from");
 
 
-const userId = loginInputValue.value;
-const password = passwordInputValue.value;
+
+let userId = '';
+let password = '';
 
 //todo:좀 더 효율적으로 생각해보기
 loginDelBtn.addEventListener("click", clearLoginValue);
@@ -14,6 +15,11 @@ passwordDelBtn.addEventListener("click", clearPasswordValue);
 form.addEventListener("submit", onSubmit);
 
 
+
+function createValue(){
+    userId = loginInputValue.value;
+    password = passwordInputValue.value;
+}
 
 
 function clearLoginValue() {
@@ -37,6 +43,7 @@ async function onSubmit(event) {
       };
       
   try {
+    console.log(requestOptions);
     const response = await fetch(loginUrl, requestOptions);
     const data = await response.json();
 
