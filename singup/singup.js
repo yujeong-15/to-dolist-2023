@@ -23,10 +23,10 @@ const errorDate = document.querySelector(".error-date");
 const form = document.querySelector("#singup-from");
 form.addEventListener("submit", onSubmit);
 
-//성별 변수 선언
-const Male = 'Male';
-const Woman = 'Woman';
-
+//api data
+let gender = "";
+let birthDate = "";
+let username = "";
 
 //전체 input
 const input = document.getElementsByClassName("text");
@@ -136,6 +136,7 @@ function handleNameChange() {
         userName.classList.remove("error-input");
         errorUserName.style.visibility = "hidden";
         errorUserName.innerHTML = "";
+        username = userName.value;
     }
 }
 
@@ -183,6 +184,7 @@ function handleDateChange() {
             date.classList.remove("error-input");
             errorDate.style.visibility = "hidden";
             errorDate.innerHTML = "";
+            birthDate = new Date(date.value).toISOString();
         }
         date.value = date.value.replace(/^(\d{4})(\d{2})(\d{2})$/, "$1-$2-$3");
     }
@@ -192,41 +194,42 @@ function handleDateChange() {
 
 //성별 기능
 function seleteGender(event) {
-    if(event.target.value === "Male"){
-        return Male;
-    }else{
-        return Woman;
+    if (event.target.value === "Male") {
+        gender = "Male";
+    } else {
+        gender = "Female";
     }
-   
+
 }
 
-function onSubmit(event) {
-    let hasError = false;
-
+async function onSubmit(event) {
+    event.preventDefault();
+    
     inputArray.forEach((text) => {
         if (text.classList.contains("error-input")) {
             hasError = true;
         } else if (text.value === "" && text.type !== "email") {
             text.classList.add("error-input");
-            const errorTextElement = text.nextElementSibling; //형제요소 찾기
+            const errorTextElement = text.nextElementSibling;
             errorTextElement.innerHTML = "필수 정보입니다.";
             errorTextElement.style.visibility = "visible";
-            hasError = true;
         }
     });
-
-    if (hasError) {
-        event.preventDefault();
-    }
-
-    fetch('users/singin', {
+    
+    const singInUrl = 'https://evolvetasks-evolvetasks.koyeb.app/users/signup';
+    const requestOptions = {
         method: 'post',
-        data: JSON.stringify({
-            "userId": userId.value,
-            "password": password.value,
-            "username": userName.value,
-            "gender": "Male",
-            "birthDate": "1995-09-24T00:00:00.000Z"
-        })
-    })
+        body: JSON.stringify({"userId": userId.value, "password": password.value, username, gender, birthDate })
+    };
+    console.log("앞",requestOptions.body);
+    try {
+        const response = await fetch(singInUrl, requestOptions);
+        const data = await response.json();
+        console.log(data);
+        const token = data.token;
+        console.log(response);
+        return token;
+    } catch (error) {
+        console.error('signin failed:', error);
+    }
 }
