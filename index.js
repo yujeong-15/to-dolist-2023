@@ -31,28 +31,28 @@ function clearPasswordValue() {
 }
 
 async function onSubmit(event) {
-    event.preventDefault();
-    const loginUrl = 'https://evolvetasks-evolvetasks.koyeb.app/api/users/singin';
-    if (loginInputValue.value === "" || passwordInputValue.value === "") {
-        return;
-    }
-
+  if (loginInputValue.value === "" || passwordInputValue.value === "") {
+    return;
+  }
+  event.preventDefault();
     const requestOptions = {
         method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+          'Authorization': 'Bearer your-access-token',
+        },
         body: JSON.stringify({userId, password})
       };
       
-  try {
-    console.log(requestOptions);
-    const response = await fetch(loginUrl, requestOptions);
-    const data = await response.json();
-
-    const token = data.token;
-    console.log("성공?");
-    return token;
-
-  } catch (error) {
-    console.error('Login failed:', error);
-    //return null; //null를 사용하면 명시적으로 값이 없음을 나타내기 위해서
-  }
+      try {
+        const response = await fetch('https://evolvetasks-evolvetasks.koyeb.app/users/singin', requestOptions);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log("성공", data);
+        window.location.href = 'todo/todo.html';
+      } catch (error) {
+        console.error('Login failed:', error);
+      }
 }

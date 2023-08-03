@@ -220,7 +220,7 @@ function seleteGender(event) {
             "Content-Type": "application/json",
             'Authorization': 'Bearer your-access-token',
           },
-        data: JSON.stringify({"userId": userId.value, "password": password.value, username, gender, birthDate }),
+        body: JSON.stringify({"userId": userId.value, "password": password.value, username, gender, birthDate }),
       };
       fetch('https://evolvetasks-evolvetasks.koyeb.app/users/signup', requestOptions)
       .then(response => {
