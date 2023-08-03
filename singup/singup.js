@@ -186,7 +186,6 @@ function handleDateChange() {
             errorDate.innerHTML = "";
             birthDate = new Date(date.value).toISOString();
         }
-        date.value = date.value.replace(/^(\d{4})(\d{2})(\d{2})$/, "$1-$2-$3");
     }
 }
 
@@ -202,9 +201,8 @@ function seleteGender(event) {
 
 }
 
-async function onSubmit(event) {
+ function onSubmit(event) {
     event.preventDefault();
-    
     inputArray.forEach((text) => {
         if (text.classList.contains("error-input")) {
             hasError = true;
@@ -216,20 +214,27 @@ async function onSubmit(event) {
         }
     });
     
-    const singInUrl = 'https://evolvetasks-evolvetasks.koyeb.app/users/signup';
     const requestOptions = {
-        method: 'post',
-        body: JSON.stringify({"userId": userId.value, "password": password.value, username, gender, birthDate })
-    };
-    console.log("앞",requestOptions.body);
-    try {
-        const response = await fetch(singInUrl, requestOptions);
-        const data = await response.json();
-        console.log(data);
-        const token = data.token;
-        console.log(response);
-        return token;
-    } catch (error) {
-        console.error('signin failed:', error);
-    }
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            'Authorization': 'Bearer your-access-token',
+          },
+        data: JSON.stringify({"userId": userId.value, "password": password.value, username, gender, birthDate }),
+      };
+      fetch('https://evolvetasks-evolvetasks.koyeb.app/users/signup', requestOptions)
+      .then(response => {
+        console.log(response,requestOptions);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data, "서버로부터 받아온 data");
+        window.location.href = '../index.html';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
 }
